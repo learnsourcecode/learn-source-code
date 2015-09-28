@@ -5,4 +5,9 @@ branches:
 install:
 - pip install pelican ghp-import
 script:
-- make github
+- make publish
+env:
+  global:
+    secure: CiYT9toVqFmccUKnu41gh9deDk0txYl5Vo8r5NY87+HfS4lIsCiFi9aQv3MKFSxk4IqcSW2H29vsB6Zr9foPVWbWomRvq2nvg7vQlFVnMinb9fyVSaZM9ocyuhqJKjyx4yRVFhnBymh7ybAcCLsR01aBSyqolLa3+Yt99AWMnFJjhgdY20yzp6dlcScJ/AnU67NwFWyKiG+yc5pBftguT1Ayugd+S0gO3cAHhS1xnUr+rSjeDYKTthDPj/4GXSw5zP/ikwKcxy+RGLM9daqEge3ZagwdWMrp9/9IcZSn+8c6XZTtfMb1jEq5LHX2+WueIyYF9aJ8+jtCnzZN43zJLd+kXpX1vD9uTeztxXxmX9PHBYYRc4+Kiag7TKO/QOnp2Bk2vkx0kWn0AXjV+ekObQFrKiMNmXJ91jUxie6+F0YxSktuvW2JYkY2yCIGoSdArhrw/n/Vc7wqIlD+06LYkIy6YdTo0VOpWe45kSdGNTqKbYJ9wu2zX6BjuTANs2iZQQbWPYDE/X8NPVf+WLNnigcD5JvBKHMW+5JxWu77Hyh6qBOO594PM+rb0c8zQOEzE+XwtrHKQV7VhBSzfpGjKsIUvz8lTMoh26EcZnGTDf3KaUGmv5YjqVgq0DMSNK9r7KFlHa9sOysz2/JcYUe60WCZh5rU2XJKlmxgWP4+O+A=
+after_success:
+  - make github
