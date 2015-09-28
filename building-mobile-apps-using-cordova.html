@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Building Mobile apps using Cordova - learnsourcecode</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="/building-mobile-apps-using-cordova.html">
+
+        <meta name="author" content="Vengat" />
+        <meta name="keywords" content="[Android]" />
+        <meta name="description" content="Apache Cordova is an open source mobile development framework. It allows you to develop mobile application using web technologies such as HTML, CSS and JavaScript. Using Cordova APIs you can able to create apps without any native code such as Java, Ojective-C etc., Instead of using native code, Cordova uses ..." />
+
+        <meta property="og:site_name" content="learnsourcecode" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Building Mobile apps using Cordova"/>
+        <meta property="og:url" content="/building-mobile-apps-using-cordova.html"/>
+        <meta property="og:description" content="Apache Cordova is an open source mobile development framework. It allows you to develop mobile application using web technologies such as HTML, CSS and JavaScript. Using Cordova APIs you can able to create apps without any native code such as Java, Ojective-C etc., Instead of using native code, Cordova uses ..."/>
+        <meta property="article:published_time" content="2014-12-10" />
+            <meta property="article:section" content="misc" />
+            <meta property="article:tag" content="[Android]" />
+            <meta property="article:author" content="Vengat" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.simplex.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+
+
+
+
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+	<div class="container">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand"><img src="/theme/images/home.png" width="25px"/>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="/pages/about.html">
+                             About
+                          </a></li>
+                        <li >
+                            <a href="/category/android.html">Android</a>
+                        </li>
+                        <li >
+                            <a href="/category/home.html">Home</a>
+                        </li>
+                        <li class="active">
+                            <a href="/category/misc.html">Misc</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/building-mobile-apps-using-cordova.html"
+                       rel="bookmark"
+                       title="Permalink to Building Mobile apps using Cordova">
+                        Building Mobile apps using Cordova
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2014-12-10T00:00:00+01:00"> Wed 10 December 2014</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/android.html">[Android]</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>Apache Cordova is an open source mobile development framework. It allows you to develop mobile application using web technologies such as HTML, CSS and JavaScript. Using Cordova APIs you can able to create apps without any native code such as Java, Ojective-C etc., Instead of using native code, Cordova uses the HTML, CSS and JavaScript to develop mobile apps.</p>
+<h4>Supported Platforms:</h4>
+<p>Cordova Supports various platforms like:</p>
+<ul>
+<li>iOS</li>
+<li>Android</li>
+<li>Blackberry</li>
+<li>Windows Phone</li>
+<li>Bada</li>
+<li>Symbian</li>
+</ul>
+<h4>Requirements:</h4>
+<ul>
+<li>Node.js</li>
+<li>Cordova packages</li>
+<li>Command Line Interface</li>
+</ul>
+<h4>Setting up the Environment:</h4>
+<ul>
+<li>Download and install Node.js.</li>
+<li _="%" endhighlight="endhighlight">Using <code>npm</code> install the Cordova package.
+{% highlight yaml %}
+sudo npm install -g cordova</li>
+</ul>
+<h4>Creating an App:</h4>
+<p>Go to the directory where you want to create your project and run the following command:</p>
+<p _="%" endhighlight="endhighlight">{% highlight yaml %}
+cordova create Hello com.example.hello HelloWorld</p>
+<ul>
+<li><code>Hello</code> specifies the name of the directory.</li>
+<li><code>com.example.hello</code> specifies the package name of your project.</li>
+<li><code>HelloWorld</code> specifies the Application name of your project.</li>
+</ul>
+<p>After creating, your project will contains various files and directories namely:</p>
+<ul>
+<li><code>config.xml</code> is the configuration file of your project source.</li>
+<li><code>platforms</code> is the directory which contains all you added platforms.</li>
+<li><code>plugins</code> contains all your added cordova plugins</li>
+<li><code>www</code> is the source directory which contains HTML,CSS and JavaScript files.</li>
+</ul>
+<h4>Adding Platforms to your project:</h4>
+<p>Before building your project, you need to make sure you have already installed supported SDKs and then you need to specify the target platforms using the following commands:</p>
+<p _="%" endhighlight="endhighlight">{% highlight yaml %}
+$ cordova platform add ios
+$ cordova platform add android
+$ cordova platform add blackberry10
+$ cordova platform add firefoxos</p>
+<p _="%" endhighlight="endhighlight">Run this command to list all your targeted platforms:
+{% highlight yaml %}
+$ cordova platforms list</p>
+<p _="%" endhighlight="endhighlight">You can also remove the target platforms using:
+{% highlight yaml %}
+$ cordova platform remove ios</p>
+<h4>Build:</h4>
+<p>To Build your project, create a HTML file called <code>index.html</code> and place it in the directory <code>www</code>.</p>
+<p _="%" endhighlight="endhighlight">Run the following command to build the project:
+{% highlight yaml %}
+$ cordova build</p>
+<p _="%" endhighlight="endhighlight">To install or run your project:
+{% highlight yaml %}
+$ cordova run --emulator</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="https://twitter.com/vengatlnx"><i class="fa fa-twitter-square fa-lg"></i> twitter</a></li>
+                <li class="list-group-item"><a href="https://in.linkedin.com/pub/vengatesh-selvaraj/83/8b1/446"><i class="fa fa-linkedin-square fa-lg"></i> linkedin</a></li>
+                <li class="list-group-item"><a href="https://github.com/vengatlnx/"><i class="fa fa-github-square fa-lg"></i> github</a></li>
+              </ul>
+            </li>
+
+
+
+
+
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2015 All rights Reserved | Designed by <a href="https://www.learnsourcecode.com" target="_blank">learnsourcecode</a>,         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+    <script src="/theme/js/bodypadding.js"></script>
+
+</body>
+</html>

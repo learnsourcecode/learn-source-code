@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Android Navigation Drawer - learnsourcecode</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="/android-navigation-drawer.html">
+
+        <meta name="author" content="Vengatesh.S" />
+        <meta name="keywords" content="android" />
+        <meta name="description" content="The Navigation drawer is a panel that display&#39;s the navigation option on the left side of the screen. Navigation drawer uses the DrawerLayout API which is available in the Android Support Library. So before proceeding make sure that have installed Android Supported Library in Android SDK. Create Drawer Layout ..." />
+
+        <meta property="og:site_name" content="learnsourcecode" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Android Navigation Drawer"/>
+        <meta property="og:url" content="/android-navigation-drawer.html"/>
+        <meta property="og:description" content="The Navigation drawer is a panel that display&#39;s the navigation option on the left side of the screen. Navigation drawer uses the DrawerLayout API which is available in the Android Support Library. So before proceeding make sure that have installed Android Supported Library in Android SDK. Create Drawer Layout ..."/>
+        <meta property="article:published_time" content="2014-12-18" />
+            <meta property="article:section" content="Android" />
+            <meta property="article:tag" content="android" />
+            <meta property="article:author" content="Vengatesh.S" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.simplex.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+
+
+
+
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+	<div class="container">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand"><img src="/theme/images/home.png" width="25px"/>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="/category/android.html">Android</a>
+                        </li>
+                        <li >
+                            <a href="/category/linux.html">Linux</a>
+                        </li>
+                        <li>
+			  <a href="/pages/about.html">About</a>
+			</li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/android-navigation-drawer.html"
+                       rel="bookmark"
+                       title="Permalink to Android Navigation Drawer">
+                        Android Navigation Drawer
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2014-12-18T12:06:00+01:00"> Thu 18 December 2014</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/android.html">android</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <!-- Summary: "Navigation Drawer" -->
+
+<p>The Navigation drawer is a panel that display's the navigation option on the left side of the screen.
+Navigation drawer uses the DrawerLayout API which is available in the Android Support Library. So before
+proceeding make sure that have installed Android Supported Library in Android SDK.</p>
+<h4>Create Drawer Layout:</h4>
+<ul>
+<li>Declare the DrawerLayout as the root object in the android xml.</li>
+<li>And create a FrameLayout for the main content view of DrawerLayout.</li>
+<li>Then create a ListView to display content in the navigation window.</li>
+</ul>
+<p><android.support.v4.widget.DrawerLayout
+      android:id="@+id/drawer_layout"
+          android:layout_width="match_parent"
+      android:layout_height="match_parent"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+          <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <ListView
+        android:id="@+id/left_drawer"
+        android:layout_width="240dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="#111"
+            android:choiceMode="singleChoice"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0dp"/>
+  </android.support.v4.widget.DrawerLayout></p>
+<h4>Initializing the Drawer List</h4>
+<ul>
+<li>Declare String array-item, ListView and DrawerLayout in the MainActivity</li>
+</ul>
+<p>String item[] = {"Create", "Read", "Help"};
+  ListView listView;
+  DrawerLayout drawerLayout;</p>
+<ul>
+<li>Create list_item_row.xml to list items in views.</li>
+</ul>
+<p><TextView
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      android:id="@android:id/text1"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:textAppearance="?android:attr/textAppearanceListItemSmall"
+          android:gravity="center_vertical"
+          android:paddingLeft="16dp"
+          android:paddingRight="16dp"
+          android:textColor="#fff"
+          android:background="?android:attr/activatedBackgroundIndicator"
+          android:minHeight="?android:attr/listPreferredItemHeightSmall"
+    /></p>
+<ul>
+<li>Declare ArrayAdapter to populate listView with its item.</li>
+<li>Initialize DrawerLayout and ListView with its resource ID.</li>
+<li>Set Adapter for list view.</li>
+<li>Create handler list view as OnItemClickListener.</li>
+</ul>
+<p>drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
+   listView = (ListView)findViewById(R.id.left_drawer);
+   listView.setAdapter(adapter);</p>
+<p>listView.setOnItemClickListener(new DrawerItemClickListener());</p>
+<ul>
+<li>Create a DrawerItemClickListener class with fragment activity to
+  perform action event for navigation drawer.</li>
+</ul>
+<p>private class DrawerItemClickListener implements AdapterView.OnItemClickListener {
+        @Override
+        public void onItemClick(AdapterView&lt;?&gt; parent, View view, int position, long id) {
+            selectItem(position);
+        }</p>
+<div class="highlight"><pre>    private void selectItem(int position) {
+        Fragment fragment = null;
+        switch(position) {
+            case 0:
+                fragment = new CreateFragment();
+                break;
+
+            default:
+                break;
+        }
+
+        if (fragment != null) {
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+
+            listView.setItemChecked(position, true);
+            listView.setSelection(position);
+            getActionBar().setTitle(item[position]);
+            drawerLayout.closeDrawer(listView);
+
+        } else {
+            Log.e(&quot;MainActivity&quot;, &quot;Error in creating fragment&quot;);
+        }
+    }
+}
+</pre></div>
+
+
+<ul>
+<li>Create a Fragment class and view resources.</li>
+</ul>
+<p>public class CreateFragment extends Fragment {</p>
+<div class="highlight"><pre>public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+    View rootView = inflater.inflate(R.layout.activity_create_fragment, container, false);
+
+    return rootView;
+}
+</pre></div>
+
+
+<p>}</p>
+<p>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+  <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zilogic.navigation.CreateFragment"></p>
+<div class="highlight"><pre>&lt;TextView android:id=&quot;@+id/txtLabel&quot;
+    android:layout_width=&quot;wrap_content&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:layout_centerInParent=&quot;true&quot;
+    android:text=&quot;Create View&quot;
+    android:textSize=&quot;16dp&quot;/&gt;
+</pre></div>
+
+
+<p></RelativeLayout></p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="https://twitter.com/vengatlnx"><i class="fa fa-twitter-square fa-lg"></i> twitter</a></li>
+                <li class="list-group-item"><a href="https://in.linkedin.com/pub/vengatesh-selvaraj/83/8b1/446"><i class="fa fa-linkedin-square fa-lg"></i> linkedin</a></li>
+                <li class="list-group-item"><a href="https://github.com/vengatlnx/"><i class="fa fa-github-square fa-lg"></i> github</a></li>
+              </ul>
+            </li>
+
+
+
+
+
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2015 All rights Reserved | Designed by <a href="https://www.learnsourcecode.com" target="_blank">learnsourcecode</a>,         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+    <script src="/theme/js/bodypadding.js"></script>
+
+</body>
+</html>
